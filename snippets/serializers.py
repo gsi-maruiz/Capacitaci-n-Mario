@@ -43,6 +43,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ['id', 'name', 'books']
 
+    '''
     def create(self, validated_data):
         print(validated_data)
         books_data = validated_data.pop('books')
@@ -50,6 +51,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         for book_data in books_data:
             Book.objects.create(author=author, **book_data)
         return author
+    '''
 
 
 class TrackSerializer(serializers.ModelSerializer):

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'snippets.apps.SnippetsConfig',
     'django_filters',
+    "graphene_django",
+    'ingredientsGraphql.apps.IngredientsgraphqlConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,4 +123,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+GRAPHENE = {
+    "SCHEMA": "restframeworkbyme.schema.schema",
+    "ATOMIC_MUTATIONS": True,
 }
