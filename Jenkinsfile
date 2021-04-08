@@ -1,15 +1,9 @@
 pipeline {
-    agent { label 'master'}
-
+    agent any
         stages {
             stage ('settings') {
                 steps {
                     sh "python3 manage.py migrate"                  
-                }
-            }            
-            stage ('create deploy') {
-                steps {
-                    sh "python3 manage.py runserver"
                 }
             }
             stage('Performance Testing') {
@@ -17,6 +11,11 @@ pipeline {
                     echo 'Running K6 performance tests...'
                     sh 'k6 run loadTests/performance-test.js'
                 }
-            }
+            }            
+            stage ('create deploy') {
+                steps {
+                    sh "python3 manage.py runserver"
+                }
+            }            
         }
 }
