@@ -1,15 +1,11 @@
 pipeline {
     agent any
         stages{
-            stage ("Git Pull"){
-                steps{
-                    git credentialsId: 'key-https-ID', url: 'https://gitlab.generalsoftwareinc.com/h2o/capacitacion-mario.git'
-                }
-            }
             stage ("Start API"){
                 steps{
+                    sh 'chmod 777 ./runserver.sh'
                     sh './runserver.sh'
-                }                
+                }
             }
         }
         /*environment {
