@@ -8,7 +8,7 @@ pipeline {
             }
             stage ("Start API"){
                 steps{
-                    sh 'runserver.sh'
+                    sh './runserver.sh'
                 }                
             }
         }
