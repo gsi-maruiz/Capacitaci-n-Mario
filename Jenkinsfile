@@ -1,10 +1,15 @@
 pipeline {
     agent any
-        environment {
+        stages{
+            stage ("Start API"){
+                sh 'runserver.sh'
+            }
+        }
+        /*environment {
             K6_API_TOKEN=credentials("K6_API_TOKEN")
             K6_CLOUD_PROJECT_ID=credentials("K6_CLOUD_PROJECT_ID")
-        }
-        stages {
+        }*/        
+        /*stages {
             stage('Performance Testing') {
                 steps {                    
                     echo 'Running K6 performance tests...'
@@ -13,5 +18,5 @@ pipeline {
                     echo 'Completed Running K6 performance tests!'
                 }
             }                                    
-        }
+        }*/
 }
