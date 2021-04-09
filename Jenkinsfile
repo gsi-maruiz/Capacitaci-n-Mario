@@ -1,18 +1,10 @@
 pipeline {
     agent any
-        stages{
-            stage ("Start API"){
-                steps{
-                    sh 'chmod 777 ./runserver.sh'
-                    sh './runserver.sh'
-                }
-            }
-        }
-        /*environment {
+        environment {
             K6_API_TOKEN=credentials("K6_API_TOKEN")
             K6_CLOUD_PROJECT_ID=credentials("K6_CLOUD_PROJECT_ID")
-        }*/        
-        /*stages {
+        }
+        stages {
             stage('Performance Testing') {
                 steps {                    
                     echo 'Running K6 performance tests...'
@@ -21,5 +13,5 @@ pipeline {
                     echo 'Completed Running K6 performance tests!'
                 }
             }                                    
-        }*/
+        }
 }
