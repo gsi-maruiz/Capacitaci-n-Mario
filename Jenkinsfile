@@ -2,7 +2,9 @@ pipeline {
     agent any
         stages{
             stage ("Start API"){
-                sh 'runserver.sh'
+                steps{
+                    sh 'runserver.sh'
+                }                
             }
         }
         /*environment {
