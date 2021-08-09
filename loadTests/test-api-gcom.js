@@ -13,7 +13,6 @@ export let options = {
       },
 };
 
-//test sync whit github now
 export default function () {
   const body = JSON.stringify({ query: 'query{UserMeGet{data{username}}}' });
   const param={      
